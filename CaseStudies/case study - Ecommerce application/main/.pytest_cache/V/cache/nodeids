@@ -1,0 +1,7 @@
+[
+  "testecom.py::TestOrderProcessorRepositoryImpl::test_add_to_cart_success",
+  "testecom.py::TestOrderProcessorRepositoryImpl::test_create_product_success",
+  "testecom.py::TestOrderProcessorRepositoryImpl::test_exception_thrown_customer_id_not_found",
+  "testecom.py::TestOrderProcessorRepositoryImpl::test_exception_thrown_product_id_not_found",
+  "testecom.py::TestOrderProcessorRepositoryImpl::test_place_order_success"
+]
