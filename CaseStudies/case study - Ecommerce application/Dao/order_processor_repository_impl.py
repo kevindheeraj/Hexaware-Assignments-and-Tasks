@@ -96,14 +96,21 @@ class OrderProcessorRepositoryImpl(OrderProcessorRepository):
             connection.close()
 
     def add_to_cart(self) -> bool:
+        connection = get_connection()
+        cursor = connection.cursor()
+        query = "SELECT * FROM products"
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+        pro_items = []
+        for row in result:
+            print(row)
         cart_id = input("enter the cart id: ")
         customer_id = input("Enter customer id: ")
         product_id = int(input("enter the product ID: "))
         quantity = input("enter the quantity: ")
         cart = Cart(cart_id, customer_id, product_id, quantity)
         try:
-            connection = get_connection()
-            cursor = connection.cursor()
 
             query = "INSERT INTO cart (cart_id, customer_id, product_id, quantity) VALUES (%s, %s, %s, %s)"
             values = (cart.get_cart_id(), cart.get_customer_id(), cart.get_product_id(), cart.get_quantity())
